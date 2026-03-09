@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}게시판{% endblock %}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #1e2025;
+      color: #cdd0d6;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #262930;
+      border-bottom: 1px solid #32363f;
+      padding: 1rem 2rem;
+    }
+
+    header a {
+      color: #e0e2e7;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    header a span.accent { color: #5b9cf6; }
+
+    .container {
+      max-width: 820px;
+      margin: 2.5rem auto;
+      padding: 0 1.2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: #5b9cf6;
+      color: #fff;
+    }
+    .btn-primary:hover { background: #4a8de8; }
+
+    .btn-danger {
+      background: #3a2828;
+      color: #e07c7c;
+      border: 1px solid #4a3030;
+    }
+    .btn-danger:hover { background: #4a3030; color: #f0a0a0; }
+
+    .btn-secondary {
+      background: #2e3139;
+      color: #8a8f9c;
+      border: 1px solid #3a3f4a;
+    }
+    .btn-secondary:hover { background: #363b45; color: #aab0bc; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/"><span class="accent">■</span> BOARD</a>
+  </header>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

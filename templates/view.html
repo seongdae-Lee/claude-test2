@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div style="background:#262930; border:1px solid #32363f; border-radius:10px; overflow:hidden;">
+  <div style="padding:1.5rem 2rem; border-bottom:1px solid #32363f;">
+    <h2 style="font-size:1.2rem; font-weight:700; color:#e0e2e7; margin-bottom:0.8rem; line-height:1.5;">{{ post.title }}</h2>
+    <div style="display:flex; align-items:center; gap:1.2rem; font-size:0.82rem;">
+      <span style="color:#5b9cf6; font-weight:600;">{{ post.author }}</span>
+      <span style="color:#32363f;">|</span>
+      <span style="color:#4a4f5e;">{{ post.created_at[:16] }}</span>
+    </div>
+  </div>
+  <div style="padding:2rem; min-height:240px; line-height:1.9; color:#a8acb8; font-size:0.93rem; white-space:pre-wrap;">{{ post.content }}</div>
+</div>
+
+<div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.2rem;">
+  <a href="/" class="btn btn-secondary">← 목록으로</a>
+  <form method="POST" action="/delete/{{ post.id }}"
+    onsubmit="return confirm('정말 삭제하시겠습니까?');">
+    <button type="submit" class="btn btn-danger">삭제</button>
+  </form>
+</div>
+{% endblock %}
