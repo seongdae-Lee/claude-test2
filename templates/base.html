@@ -41,6 +41,7 @@
       padding: 0 1.2rem;
     }
 
+    /* 공통 버튼 */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -56,10 +57,7 @@
       font-family: inherit;
     }
 
-    .btn-primary {
-      background: #5b9cf6;
-      color: #fff;
-    }
+    .btn-primary { background: #5b9cf6; color: #fff; }
     .btn-primary:hover { background: #4a8de8; }
 
     .btn-danger {
@@ -75,13 +73,224 @@
       border: 1px solid #3a3f4a;
     }
     .btn-secondary:hover { background: #363b45; color: #aab0bc; }
+
+    /* 페이지 헤더 (목록/글쓰기 상단) */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #e0e2e7;
+    }
+
+    .page-subtitle {
+      font-size: 0.8rem;
+      color: #5a5f6e;
+      margin-top: 0.25rem;
+    }
+
+    /* 게시글 목록 테이블 */
+    .table-wrapper {
+      border: 1px solid #32363f;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .board-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .board-table thead tr {
+      background: #262930;
+      border-bottom: 1px solid #32363f;
+    }
+
+    .board-table th {
+      padding: 0.75rem 1rem;
+      color: #5a5f6e;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .th-num, .th-author, .th-date { text-align: center; }
+    .th-num { width: 60px; }
+    .th-author { width: 100px; }
+    .th-date { width: 130px; }
+    .th-title { text-align: left; }
+
+    .post-row {
+      border-bottom: 1px solid #2a2e36;
+      transition: background 0.12s;
+    }
+    .post-row:hover { background: #252830; }
+
+    .board-table td { padding: 0.9rem 1rem; }
+
+    .td-num { text-align: center; color: #4a4f5e; font-size: 0.82rem; }
+
+    .post-link {
+      color: #c8ccd4;
+      text-decoration: none;
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+
+    .td-author {
+      text-align: center;
+      color: #5b9cf6;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .td-date { text-align: center; color: #4a4f5e; font-size: 0.8rem; }
+
+    /* 빈 목록 상태 */
+    .empty-state {
+      text-align: center;
+      padding: 5rem 2rem;
+      border: 1px solid #32363f;
+      border-radius: 10px;
+      color: #4a4f5e;
+    }
+
+    .empty-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+
+    /* 글쓰기 폼 */
+    .form-heading { margin-bottom: 1.5rem; }
+
+    .form-card {
+      background: #262930;
+      border: 1px solid #32363f;
+      border-radius: 10px;
+      padding: 2rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.78rem;
+      color: #5a5f6e;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      background: #1e2025;
+      border: 1px solid #3a3f4a;
+      border-radius: 7px;
+      font-size: 0.92rem;
+      color: #cdd0d6;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus { border-color: #5b9cf6; }
+
+    .form-textarea {
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    .form-textarea-wrap { margin-bottom: 1.5rem; }
+
+    .form-actions { display: flex; gap: 0.8rem; }
+
+    /* 게시글 상세 */
+    .post-card {
+      background: #262930;
+      border: 1px solid #32363f;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .post-card-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #32363f;
+    }
+
+    .post-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #e0e2e7;
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .post-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.82rem;
+    }
+
+    .meta-author { color: #5b9cf6; font-weight: 600; }
+    .meta-sep { color: #32363f; }
+    .meta-date { color: #4a4f5e; }
+
+    .post-card-body {
+      padding: 2rem;
+      min-height: 240px;
+      line-height: 1.9;
+      color: #a8acb8;
+      font-size: 0.93rem;
+      white-space: pre-wrap;
+    }
+
+    .view-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.2rem;
+    }
+
+    /* Flash 메시지 */
+    .flash-messages { margin-bottom: 1rem; }
+
+    .flash-message {
+      padding: 0.75rem 1rem;
+      border-radius: 7px;
+      font-size: 0.88rem;
+      background: #3a2828;
+      color: #e07c7c;
+      border: 1px solid #4a3030;
+    }
   </style>
 </head>
 <body>
   <header>
-    <a href="/"><span class="accent">■</span> BOARD</a>
+    <a href="{{ url_for('index') }}"><span class="accent">■</span> BOARD</a>
   </header>
   <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
   </div>
 </body>

@@ -2,47 +2,44 @@
 {% block title %}BOARD - 목록{% endblock %}
 
 {% block content %}
-<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+<div class="page-header">
   <div>
-    <h2 style="font-size:1.2rem; font-weight:700; color:#e0e2e7;">게시글 목록</h2>
-    <p style="font-size:0.8rem; color:#5a5f6e; margin-top:0.25rem;">총 {{ posts|length }}개</p>
+    <h2 class="page-title">게시글 목록</h2>
+    <p class="page-subtitle">총 {{ posts|length }}개</p>
   </div>
-  <a href="/write" class="btn btn-primary">+ 글쓰기</a>
+  <a href="{{ url_for('write') }}" class="btn btn-primary">+ 글쓰기</a>
 </div>
 
 {% if posts %}
-<div style="border:1px solid #32363f; border-radius:10px; overflow:hidden;">
-  <table style="width:100%; border-collapse:collapse;">
+<div class="table-wrapper">
+  <table class="board-table">
     <thead>
-      <tr style="background:#262930; border-bottom:1px solid #32363f;">
-        <th style="padding:0.75rem 1rem; text-align:center; color:#5a5f6e; font-size:0.78rem; font-weight:600; width:60px; text-transform:uppercase; letter-spacing:0.5px;">NO</th>
-        <th style="padding:0.75rem 1rem; text-align:left; color:#5a5f6e; font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">제목</th>
-        <th style="padding:0.75rem 1rem; text-align:center; color:#5a5f6e; font-size:0.78rem; font-weight:600; width:100px; text-transform:uppercase; letter-spacing:0.5px;">작성자</th>
-        <th style="padding:0.75rem 1rem; text-align:center; color:#5a5f6e; font-size:0.78rem; font-weight:600; width:130px; text-transform:uppercase; letter-spacing:0.5px;">작성일</th>
+      <tr>
+        <th class="th-num">NO</th>
+        <th class="th-title">제목</th>
+        <th class="th-author">작성자</th>
+        <th class="th-date">작성일</th>
       </tr>
     </thead>
     <tbody>
       {% for post in posts %}
-      <tr style="border-bottom:1px solid #2a2e36; transition:background 0.12s;"
-          onmouseover="this.style.background='#252830'"
-          onmouseout="this.style.background='transparent'">
-        <td style="padding:0.9rem 1rem; text-align:center; color:#4a4f5e; font-size:0.82rem;">{{ post.id }}</td>
-        <td style="padding:0.9rem 1rem;">
-          <a href="/post/{{ post.id }}"
-             style="color:#c8ccd4; text-decoration:none; font-size:0.93rem; font-weight:500;">
+      <tr class="post-row">
+        <td class="td-num">{{ post.id }}</td>
+        <td>
+          <a href="{{ url_for('view', post_id=post.id) }}" class="post-link">
             {{ post.title }}
           </a>
         </td>
-        <td style="padding:0.9rem 1rem; text-align:center; color:#5b9cf6; font-size:0.85rem; font-weight:500;">{{ post.author }}</td>
-        <td style="padding:0.9rem 1rem; text-align:center; color:#4a4f5e; font-size:0.8rem;">{{ post.created_at[:16] }}</td>
+        <td class="td-author">{{ post.author }}</td>
+        <td class="td-date">{{ post.created_at[:16] }}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
 {% else %}
-<div style="text-align:center; padding:5rem 2rem; border:1px solid #32363f; border-radius:10px; color:#4a4f5e;">
-  <div style="font-size:2rem; margin-bottom:0.8rem;">📭</div>
+<div class="empty-state">
+  <div class="empty-icon">📭</div>
   <p>아직 게시글이 없습니다.</p>
 </div>
 {% endif %}

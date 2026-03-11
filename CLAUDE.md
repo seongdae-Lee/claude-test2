@@ -11,6 +11,7 @@ python app.py
 http://localhost:5000 에서 접속. DB 파일(`board.db`)은 최초 실행 시 자동 생성된다.
 
 정적 파일만 서빙할 때:
+
 ```bash
 python -m http.server 8080
 ```
@@ -21,7 +22,7 @@ python -m http.server 8080
 - `templates/` - Jinja2 템플릿
   - `base.html` - 공통 레이아웃 (헤더, 공통 CSS, `.btn` 스타일)
   - `index.html` - 게시글 목록
-  - `write.html` - 글쓰기 폼
+  - `write.html` - 글쓰기 폼 
   - `view.html` - 게시글 상세 + 삭제
 - `board.db` - SQLite DB 파일 (gitignore 권장)
 - `index.html` - 원본 Hello World 정적 페이지 (Flask와 무관)
